@@ -1,2 +1,2 @@
-# InnovationTeam6
-For Unimelb Innovation Project
+# Innovation Team 6 Project Repository
+Prepared for Unimelb Technology Innovation Project (INFO90010)
