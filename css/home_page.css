@@ -1,0 +1,24 @@
+#role {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 0%;
+    left: 30%;
+    background-color: orangered;
+}
+#student {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    top: 40%;
+    left: 30%;
+    background-color: paleturquoise;
+}
+#teacher {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    top: 60%;
+    left: 30%;
+    background-color: orange;
+}

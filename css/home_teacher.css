@@ -1,0 +1,32 @@
+#role {
+    position: absolute;
+    width: 30%;
+    height: 10%;
+    top: 0%;
+    left: 30%;
+    background-color: orangered;
+}
+#student {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    top: 10%;
+    left: 30%;
+    background-color: paleturquoise;
+}
+#postq {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    top: 30%;
+    left: 30%;
+    background-color: orange;
+}
+#out {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    top: 50%;
+    left: 30%;
+    background-color: orange;
+}
