@@ -11,6 +11,8 @@
     </head>
     <style>
 
+
+
     </style>
     <body>
         <div id="video">
@@ -52,15 +54,20 @@
         <div id="div2" class="col-md-7 agileits_mail_grid_left" style="display: none;background-color: #ffffff;border-radius:10px">
                     <table class="table" style="background-color: #ffffff">
                         <tbody>
-                        <tr>
-                            <th class="anchorjs-icon">勋章</th>
-                            <th class="anchorjs-icon">对象</th>
-                            <th class="anchorjs-icon">时间</th>
-                        </tr>
-                         <tr><td>勋章图片</td><td>Jeff</td> <tr/>
-                         <tr><td>勋章图片</td><td>Anna</td> <tr/>
-                         <tr><td>勋章图片</td><td>Tome</td> <tr/>
-                         <tr><td>勋章图片</td><td>DIi</td> <tr/>
+
+                        <dl>
+                            <dt>
+                                <div id="user1">
+                                    <img src="img/l1.png" style="width:5%;height:5%;vertical-align: middle" >
+                                    <span>Tome</span>
+                                </div>
+                            </dt>
+
+                            <dt>2</dt>
+                            <dt>3</dt>
+                            <dt>4</dt>
+                        </dl>
+
 
                         </tbody>
                     </table>
@@ -71,8 +78,10 @@
 
 
             <button id="voice" >Voice</button>
-            <button id="uservidero">Video</button>
+            <button id="uservideo">Video</button>
             <button id="rank">Rank</button>
+            <button id="answerquestions">Answer Questions</button>
+
 
 
         <script>
@@ -103,16 +112,144 @@
                 <div id="poptop" class="content">
                     <div id="close">
                         <span id="close-button">×</span>
-                        <h2>弹窗头部</h2>
+                        <h2>Ranking list</h2>
                     </div>
                     <div id="poptitile">
-                        <h3>弹窗标题</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, ullam, nisi, enim laboriosam ea cum necessitatibus ipsum cupiditate neque soluta qui autem odit eligendi blanditiis voluptatem repellat suscipit quia perspiciatis.</p>
+<!--                        <h3>弹窗标题</h3>-->
+                        <table width="100%" border="1" >
+                              <thead>
+                                  <tr>
+                                    <th class="main" scope="col" rowspan="2">Rank</th>
+                                    <th class="main" scope="col" colspan="6">Credit Rank </th>
+                                  </tr>
+                                  <tr class="sub-main" >
+                                    <th>Name </th>
+                                    <th>Credits </th>
+                                    <th>Medal</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <th scope="row" class="sub-main">1</th>
+                                <td>Xu</td>
+                                <td id="changecredits">25</td>
+                                <td>Medal awarded</td>
+
+                              </tr>
+                              <tr>
+                                <th scope="row" class="sub-main">2</th>
+                                <td>Jia</td>
+                                <td>20</td>
+                                <td>Medal awarded</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="sub-main">3</th>
+                                <td>Wen</td>
+                                <td>20</td>
+                                <td>Medal awarded</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="sub-main">4</th>
+                                <td>Ye</td>
+                                <td>15</td>
+                                <td>Medal awarded</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="sub-main">5</th>
+                                <td>Sebastian</td>
+                                <td>10</td>
+                                <td>-</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="sub-main">6</th>
+                                <td>Rose</td>
+                                <td>0</td>
+                                <td>-</td>
+                              </tr>
+
+                              </tbody>
+
+                            </table>
+
                     </div>
-                    <h3 id="foot">底部内容</h3>
+                    <h3 id="foot">Good Job</h3>
                 </div>
             </div>
-        <script src="js/tc.js"></script>
+
+
+
+        <div id="multiquestion">
+            <div id="poptopq" class="content">
+                    <div id="closqe">
+                        <span id="close-buttonq">×</span>
+                        <h2>Ranking list</h2>
+                    </div>
+                <div id="poptitileq">
+                    <form>
+                        <div class="divCss">
+                        1.你现在处于什么地方?()
+                            <ol type="A" start="" class="olCss" name="single" >
+                                <input class="inputClass" type="radio" name="place1" value="A" checked="checked" /><li class="liRight">银河系</li>
+                                <input class="inputClass" type="radio" name="place1" value="B" /><li class="liRight">太阳系</li>
+                                <input class="inputClass" type="radio" name="place1" value="C" /><li class="liRight">地球</li>
+                            </ol>
+                        </div>
+                        <div class="divCss">
+                        2.What is your name?()
+                            <ol type="A" start="" class="olCss" name="single" >
+                                <input class="inputClass" type="checkbox" name="place2" value="A"  /><li class="liRight">Ye</li>
+                                <input class="inputClass" type="checkbox" name="place2" value="B" checked="checked" /><li class="liRight">yeee</li>
+                                <input class="inputClass" type="checkbox" name="place2" value="C" /><li class="liRight">Yee</li>
+                            </ol>
+                        </div>
+                        <input id="submitq" type="button" value="Submit" onclick="sendMsg()" />
+                    </form>
+                </div>
+
+
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script>
+        function sendMsg(){
+            //题目数
+            var singleSize = $("[name='single']").length;
+            var multiSize = $("[name='multi']").length;
+            var div = document.getElementById('multiquestion');
+            var value = document.getElementById('changecredits');
+            //答案数组
+            var answerArr = new Array(singleSize+multiSize);
+            //单选答案
+            $("[name='single']").each(function(index){
+                //放入答案
+                var answer = $("input[name='place"+(index+1)+"']:checked").val();
+                answerArr[index] = answer;
+            })
+            //多选答案
+            $("[name='multi']").each(function(index){
+                //拼接多选答案
+                var multiAnswer = "";
+                $("input[name='place"+(index+singleSize+1)+"']:checked").each(function(){
+                    if ("checked" == $(this).attr("checked")) {
+                        //拼接答案
+                        multiAnswer = multiAnswer+$(this).attr('value');
+                    }
+                })
+                //放入答案
+                answerArr[index+singleSize] = multiAnswer;
+            })
+            //在调试模式下的console中查看输出
+            console.log(answerArr);
+            //发送答案到服务器
+            value.innerText = parseInt(value.innerText) + 1
+            div.style.display = "none";
+        }
+        </script>
+
+            </div>
+        </div>
+
+    <script src="js/tc.js"></script>
+
+
     </body>
 
 </html>

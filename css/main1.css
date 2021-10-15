@@ -110,5 +110,68 @@ h3 {
 	padding-top: 15px;
 }
 
+#multiquestion {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+
+.divCss{
+	margin-bottom: 10px;
+}
+.olCss{
+	padding-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	margin-left: 40px;
+}
+.inputClass {
+	float:left;
+	margin-left: -50px;
+}
+.liRight {
+
+}
+
+#poptopq {
+	background:#eeeeee;
+	width: 70%;
+	z-index: 1;
+	margin: 12% auto;
+	overflow: auto;
+}
+
+
+
+#poptitileq {
+	background:#eeeeee;
+	margin: auto;
+	height: 300px;
+	padding: 0 20px;
+}
+
+#closeq {
+	padding: 5px;
+	background: #5cd31b;
+}
+
+#close-buttonq {
+	float: right;
+	font-size: 30px;
+}
+
+.post{
+	width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: paleturquoise;
+}
+
 
 

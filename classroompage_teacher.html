@@ -103,16 +103,54 @@
                 <div id="poptop" class="content">
                     <div id="close">
                         <span id="close-button">×</span>
-                        <h2>弹窗头部</h2>
+                        <h2>Post questions list</h2>
                     </div>
                     <div id="poptitile">
-                        <h3>弹窗标题</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, ullam, nisi, enim laboriosam ea cum necessitatibus ipsum cupiditate neque soluta qui autem odit eligendi blanditiis voluptatem repellat suscipit quia perspiciatis.</p>
+<!--                        <h3>弹窗标题</h3>-->
+                        <table width="100%" border="1" >
+                              <thead>
+                                  <tr>
+                                    <th class="main" scope="col" rowspan="2">Question Content</th>
+                                    <th class="main" scope="col" colspan="6">Information </th>
+                                  </tr>
+                                  <tr class="sub-main" >
+                                    <th>Credits</th>
+                                    <th>Post</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <th scope="row" class="sub-main">Where is your house?</th>
+                                <td>5 credits</td>
+                                <td id="changecredits">
+                                    <input  class="post" type="submit" value="POST" onclick="finish()" disabled="disabled"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th name="pp" scope="row" class="sub-main">What is Flask?</th>
+                                <td>10 credits</td>
+                                <td>
+                                    <input id="post1" class="post" type="button" value="POST" onclick="finish()"/>
+                                </td>
+
+                              </tr>
+
+                              </tbody>
+
+                            </table>
+
                     </div>
-                    <h3 id="foot">底部内容</h3>
+                    <h3 id="foot">Good Job</h3>
                 </div>
             </div>
-        <script src="js/tc.js"></script>
+        <script>
+            function finish(){
+                var button1 = document.getElementById('post1')
+                button1.disabled = true;
+                console.log(button1);
+            }
+        </script>
+        <script src="js/tc_teacher.js"></script>
     </body>
 
 </html>
