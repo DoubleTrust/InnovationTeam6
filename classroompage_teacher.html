@@ -23,7 +23,7 @@
                 <h2>What does VPC mean?</h2>
                 <div>
                     <button onclick="changeVisibility_with_question()">Answer now</button>
-                    <button onclick="changeVisibility()">Answer later</button>
+                    <button onclick="changeVisibility_with_export()">Answer later</button>
                 </div>          
             </div>
 
@@ -31,7 +31,7 @@
             <div id="question_collections" style="text-align:center;margin:0 auto; width:300px; border-style: solid;visibility: hidden;">
                 <a id="dlink" style="display:none;"></a>
                 <table id="collected" class="table" style="background-color: #ffffff;">
-                    <tbody>
+                    <tbody id ="question_list">
                     <tr>
                         <th class="anchorjs-icon">Name</th>
                         <th class="anchorjs-icon">Question</th>
@@ -57,18 +57,18 @@
 
         </div>
         <div id="div1" class="col-md-7 agileits_mail_grid_left" style="display: block;background-color: #ffffff;border-radius:10px">
-            <div class="lite-chatbox">
+            <div class="lite-chatbox" id="words">
                 <!-- cleft  -->
                 <div class="cleft cmsg">
                     <span class="name">chenjunyu19</span>
                     <span id = "example_question" class="content">What does the VPC mean?</span>
-                    <span id="example_rate" class="content">+5</span>
+                    <span id="example_rate1" class="content">+4</span>
                 </div>
 
                 <div class="cleft cmsg">
                     <span class="name">SuperPaxxs</span>
                     <span class="content">What does BMC mean here?</span>
-                    <span class="content" >+2</span>  
+                    <span id = "example_rate2" class="content" >+2</span>  
                 </div>
             </div>
         </div>
@@ -109,32 +109,95 @@
             {
                 document.getElementById("question_collections").style.visibility="visible";
             }
-            function changeVisibility() // for highlighted students
+            function changeVisibility_with_export() // for highlighted students
             {
                 document.getElementById("highlighted_questions").style.visibility="hidden";
+
+                // Add to question list
+                question_str = '<tr><td>chenjunyu19</td><td>'+ document.getElementById("example_question").innerHTML + '</td><td>5</td></tr>'
+                var question_list = document.getElementById("question_list");
+                question_list.innerHTML = question_list.innerHTML + question_str;
             }
             function changeVisibility_with_question()
             {
                 document.getElementById("highlighted_questions").style.visibility="hidden";
                 document.getElementById("example_question").style.background="#72D6A0";
-                document.getElementById("example_rate").style.visibility="hidden";
             }
-
+            
+            // Monitor highlight from students change
             window.addEventListener("storage",function(e){
                 var test =localStorage.getItem("question");
-                document.getElementById("highlighted_questions").style.visibility = "visible";
-    
+                if (test != null){
+                    document.getElementById("highlighted_questions").style.visibility = "visible";
+                    document.getElementById("example_rate1").innerHTML = "+5";
+                }
+
             });
+
+            // Monitor chatbox change
+            window.addEventListener("storage",function(e){
+                // save to local storage
+                var value = localStorage.getItem("Alan"); // if not working, change the key or clear
+                
+                if (value != null){
+                    str = '<div class="cleft cmsg"><span class="name">' + 'Alan' + '</span><span class="content">'+ value + '</span><span id="example_rate" class="content">+1</span></div>'
+                    var Words = document.getElementById("words");
+                    Words.innerHTML = Words.innerHTML + str;
+                    
+                    if (value.indexOf("?") != -1){
+                        // Add to question list
+                        question_str = '<tr><td>Alan</td><td>'+ value + '</td><td>1</td></tr>'
+                        var question_list = document.getElementById("question_list");
+                        question_list.innerHTML = question_list.innerHTML + question_str;
+                    }
+                } 
+
+                var p3 = localStorage.getItem("p3"); // if not working, change the key or clear
+                if (p3 != null){
+                    document.getElementById("example_rate2").innerHTML = p3;
+                } 
+
+                localStorage.clear();
+            });
+                            
+
+            // Chat-box code (input)
+            window.onload = function(){
+                var Words = document.getElementById("words");
+                var Who = "You (Green) ";
+                var TalkWords = document.getElementById("talkwords");
+                var TalkSub = document.getElementById("talksub");
+                
+                
+                TalkSub.onclick = function(){
+                    //定义空字符串
+                    var str = "";
+                    if(TalkWords.value == ""){
+                         // 消息为空时弹窗
+                        alert("消息不能为空");
+                        return;
+                    }
+                    str = '<div class="cleft cmsg"><span class="name">' + Who + '</span><span class="content">'+ TalkWords.value + '</span><span id="example_rate" class="content">+1</span></div>'
+
+                    Words.innerHTML = Words.innerHTML + str;
+                    document.getElementById("talkwords").value="";
+
+                }
+            }
             
             var id = "collected",
                 worksheetName = 'sheet',
-                workName = "demo.xls";
+                workName = "Question collections.xls";
+            
 
+            // Export remaining questions
             document.getElementById('export').onclick = function() {
                 var download = tableToExcel();
-                download(id, worksheetName, workName)
+                download(id, worksheetName, workName);
+                document.getElementById("question_collections").style.visibility = "hidden";
             };
 
+            // Export main function
             var tableToExcel = (function() {
                 var uri = 'data:application/vnd.ms-excel;base64,',
                     template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
@@ -149,6 +212,7 @@
                     document.getElementById("dlink").download = filename;
                     document.getElementById("dlink").click();
                 }
+
             });
 
             function showDiv() {
@@ -169,9 +233,8 @@
         </script>
         </div>
         <div id="input">
-            <textarea name="message here" id="textmessage" maxlength="100">
-            </textarea>
-            <button id="submit">Send</button>
+            <input type="text" style="width:300px;height:16px;padding:0px;float:left;text-indent:5px;" id="talkwords">
+            <input type="button" value="send" style="float:left;margin-left:10px;" id="talksub">    
         </div>
 
         <div id="background" class="back">

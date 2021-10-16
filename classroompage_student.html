@@ -28,22 +28,22 @@
 
         </div>
         <div id="div1" class="col-md-7 agileits_mail_grid_left" style="display: block;background-color: #ffffff;border-radius:10px">
-            <div class="lite-chatbox">
+            <div class="lite-chatbox" id="words">
                 <!-- cleft  -->
                 <div class="cleft cmsg">
                     <span class="name">chenjunyu19</span>
                     <span class="content">What does the VPC mean?</span>
-                    <span id="example_rate" class="content">+4</span>
+                    <span id="example_rate1" class="content">+4</span>
                 </div>
                 
                 <div class="cleft cmsg">
                     <span class="name">SuperPaxxs</span>
                     <span class="content">What does BMC mean here?</span>
-                    <span class="content" >+2</span>  
+                    <span id="example_rate2" class="content" >+2</span>  
                 </div>
             </div>
         </div>                
-       
+        
 
         <div id="div2" class="col-md-7 agileits_mail_grid_left" style="display: none;background-color: #ffffff;border-radius:10px">
 
@@ -74,48 +74,10 @@
             <button id="uservideo">Video</button>
             <button id="rank">Rank</button>
             <button id="answerquestions">Answer Questions</button>
-
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-        <script>
-            // plus one
-
-            //var plus_one = document.getElementById("example_rate");
-            /*plus_one.onclick = function(e){
-                plus_one.innerHTML = "+5";
-                localStorage.setItem("rgb",r+","+g+","+b);
-            } */
-
-            $("#example_rate").click(function(){
-
-                document.getElementById("example_rate").innerHTML = "+5";
-                localStorage.setItem("question","What does the VPC mean?"); // if not working, change the key or clear
-                localStorage.clear();
-                
-            });
-
-            function showDiv() {
-                var div1=document.getElementById("div1");
-                var div2=document.getElementById("div2");
-
-                if (div1.style.display==='block')
-                    div1.style.display='none';
-                else div1.style.display='block';
-                if (div2.style.display==='block')
-                    div2.style.display='none';
-                else div2.style.display='block';
-            }
-            function openwin() {
-                window.open ("rankpage.html", "height=100, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
-        }
-
-        </script>
         </div>
         <div id="input">
-            <textarea name="message here" id="textmessage" maxlength="100">
-            </textarea>
-            <button id="submit">Send</button>
+            <input type="text" style="width:300px;height:16px;padding:0px;float:left;text-indent:5px;" id="talkwords">
+            <input type="button" value="send" style="float:left;margin-left:10px;" id="talksub" onclick="pass_info()">    
         </div>
 
         <div id="background" class="back">
@@ -215,51 +177,116 @@
                         <input id="submitq" type="button" value="Submit" onclick="sendMsg()" />
                     </form>
                 </div>
-
-
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script>
-        function sendMsg(){
-            //题目数
-            var singleSize = $("[name='single']").length;
-            var multiSize = $("[name='multi']").length;
-            var div = document.getElementById('multiquestion');
-            var value = document.getElementById('changecredits');
-            //答案数组
-            var answerArr = new Array(singleSize+multiSize);
-            //单选答案
-            $("[name='single']").each(function(index){
-                //放入答案
-                var answer = $("input[name='place"+(index+1)+"']:checked").val();
-                answerArr[index] = answer;
-            })
-            //多选答案
-            $("[name='multi']").each(function(index){
-                //拼接多选答案
-                var multiAnswer = "";
-                $("input[name='place"+(index+singleSize+1)+"']:checked").each(function(){
-                    if ("checked" == $(this).attr("checked")) {
-                        //拼接答案
-                        multiAnswer = multiAnswer+$(this).attr('value');
-                    }
-                })
-                //放入答案
-                answerArr[index+singleSize] = multiAnswer;
-            })
-            //在调试模式下的console中查看输出
-            console.log(answerArr);
-            //发送答案到服务器
-            value.innerText = parseInt(value.innerText) + 1
-            div.style.display = "none";
-        }
-        </script>
-
             </div>
         </div>
 
-    <script src="js/tc.js"></script>
-
-
     </body>
+
+    <script src="js/tc.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script>
+        // Plus one code    
+        document.getElementById('example_rate1').addEventListener('click', highlight, false);
+        function highlight() {
+            alert(1);
+            document.getElementById("example_rate1").innerHTML = "+5";
+            localStorage.setItem("question","What does the VPC mean?"); // if not working, change the key or clear
+            localStorage.clear();
+        };
+
+        /*$("#example_rate1").click(function(){
+            alert(1);
+            document.getElementById("example_rate1").innerHTML = "+5";
+            localStorage.setItem("question","What does the VPC mean?"); // if not working, change the key or clear
+            localStorage.clear();
+            
+        });*/
+
+        $("#example_rate2").click(function(){
+            document.getElementById("example_rate2").innerHTML = "+3";
+            localStorage.setItem("p3","+3"); // if not working, change the key or clear
+            localStorage.clear();
+        });
+
+        function showDiv() {
+            var div1=document.getElementById("div1");
+            var div2=document.getElementById("div2");
+
+            if (div1.style.display==='block')
+                div1.style.display='none';
+            else div1.style.display='block';
+            if (div2.style.display==='block')
+                div2.style.display='none';
+            else div2.style.display='block';
+        }
+        function openwin() {
+            window.open ("rankpage.html", "height=100, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
+        }
+        
+        // Chat-box code
+    </script>
+    <script>
+        function pass_info(){
+            //定义空字符串
+            var Words = document.getElementById("words");
+            var Who = "You (Alan) ";
+            var TalkWords = document.getElementById("talkwords");
+            var TalkSub = document.getElementById("talksub");
+
+            var str = "";
+            if(TalkWords.value == ""){
+                    // 消息为空时弹窗
+                alert("消息不能为空");
+                return;
+            }
+            str = '<div class="cleft cmsg"><span class="name">' + Who + '</span><span class="content">'
+                 + TalkWords.value + '</span><span class="content">+1</span></div>'
+            
+            Words.innerHTML = Words.innerHTML + str;
+
+            // save to local storage
+            localStorage.setItem("Alan",TalkWords.value); // if not working, change the key or clear
+            localStorage.clear();
+            document.getElementById("talkwords").value="";
+        }
+        
+    </script>
+
+    <script>
+    function sendMsg(){
+        //题目数
+        var singleSize = $("[name='single']").length;
+        var multiSize = $("[name='multi']").length;
+        var div = document.getElementById('multiquestion');
+        var value = document.getElementById('changecredits');
+        //答案数组
+        var answerArr = new Array(singleSize+multiSize);
+        //单选答案
+        $("[name='single']").each(function(index){
+            //放入答案
+            var answer = $("input[name='place"+(index+1)+"']:checked").val();
+            answerArr[index] = answer;
+        })
+        //多选答案
+        $("[name='multi']").each(function(index){
+            //拼接多选答案
+            var multiAnswer = "";
+            $("input[name='place"+(index+singleSize+1)+"']:checked").each(function(){
+                if ("checked" == $(this).attr("checked")) {
+                    //拼接答案
+                    multiAnswer = multiAnswer+$(this).attr('value');
+                }
+            })
+            //放入答案
+            answerArr[index+singleSize] = multiAnswer;
+        })
+        //在调试模式下的console中查看输出
+        console.log(answerArr);
+        //发送答案到服务器
+        value.innerText = parseInt(value.innerText) + 1
+        div.style.display = "none";
+    }
+    </script>
 
 </html>
