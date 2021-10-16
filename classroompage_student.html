@@ -20,7 +20,7 @@
         <div id="video">
            <p style="text-align:center">Video</p>
 <!--            <video id="video" src="video/test1.mp4" type="video/mp4" autoplay="autoplay" controls="controls" loop="-1" ></video>-->
-            <img id="lecture" src="img/lecture.png" >
+<!--            <img id="lecture" src="img/lecture.png" >-->
         </div>
 
         <div id="chat" style="font-size: 0"><!--取出两个button之间的间隙-->
@@ -267,6 +267,13 @@
             if (div2.style.display==='block')
                 btn2.disabled = true;
             else btn2.disabled = false;
+
+            if (div1.style.display==='block')
+                btn1.style.color = 'blue';
+            else btn1.style.color = 'black';
+            if (div2.style.display==='block')
+                btn2.style.color = 'blue';
+            else btn2.style.color = 'black';
         }
         function openwin() {
             window.open ("rankpage.html", "height=100, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")

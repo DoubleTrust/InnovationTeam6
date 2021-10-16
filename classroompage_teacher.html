@@ -277,11 +277,19 @@
                 else div2.style.display='block';
 
                 if (div1.style.display==='block')
-                btn1.disabled = true;
+                    btn1.disabled = true;
                 else btn1.disabled = false;
                 if (div2.style.display==='block')
                     btn2.disabled = true;
                 else btn2.disabled = false;
+
+                if (div1.style.display==='block')
+                    btn1.style.color = 'blue';
+                else btn1.style.color = 'black';
+                if (div2.style.display==='block')
+                    btn2.style.color = 'blue';
+                else btn2.style.color = 'black';
+
             }
             function openwin() {
                 window.open ("rankpage.html", "height=100, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
