@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="refresh" content="300">
         <meta charset="utf-8">
-            <title>page for teachers</title>
+        <title>page for teachers</title>
         <link href="css/main1.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="litewebchat.css">
         <script src="js/jquery-3.5.1.min.js"></script>
@@ -14,30 +14,31 @@
 
     </style>
     <body>
-        <div id="video">
-<!--            <p style="text-align:center">Video</p>-->
-            <img id="lecture" src="img/lecture.png" >
-        </div>
+        <div id="video" >
+           <p style="text-align:center">Video</p>
+           <!-- <img id="lecture" src="img/lecture.png" > -->
+
             <!-- for highlight question -->
-            <div id="highlighted_questions" style="text-align:right; visibility:hidden">
-                <h1>Important questions</h1>
-                <h2>What does VPC mean?</h2>
+            <div id="highlighted_questions" style="text-align:left;float:right;background-color:GhostWhite; border: 3px solid black; visibility:hidden">
+                <h3>What does VPC mean?</h3>
                 <div>
-                    <button onclick="changeVisibility_with_question()">Answer now</button>
-                    <button onclick="changeVisibility_with_export()">Answer later</button>
+                    <button class="button-28" onclick="changeVisibility_with_question()">Answer now</button>
+                    <button class="button-28" onclick="changeVisibility_with_export()">Answer later</button>
                 </div>          
             </div>
 
             <!-- for question export -->
-            <div id="question_collections" style="text-align:center;margin:0 auto; width:300px; border-style: solid;visibility: hidden;">
+            <div id="question_collections" style="position:absolute;bottom:0px;left:18%;text-align:center;margin:0 auto; width:300px; border-style: solid;visibility:hidden;background-color: #ffffff;">
                 <a id="dlink" style="display:none;"></a>
-                <table id="collected" class="table" style="background-color: #ffffff;">
+                <table id="collected" class="pure-table pure-table-bordered" style="background-color: #ffffff;">
+                    <thead>
+                        <tr>
+                            <th >Name</th>
+                            <th >Question</th>
+                            <th >Rating</th>
+                        </tr>
+                    </thead>
                     <tbody id ="question_list">
-                    <tr>
-                        <th class="anchorjs-icon">Name</th>
-                        <th class="anchorjs-icon">Question</th>
-                        <th class="anchorjs-icon">Rating</th>
-                    </tr>
                    <tr>
                         <td>Jeff</td>
                         <td>What does BMC mean here?</td>
@@ -45,8 +46,14 @@
                    </tr>
                     </tbody>
                 </table>
-                <button id="export" onclick=>Download</button>
+                <button id="export" class="button-28" onclick=>Download</button>
+                <button id="cancel" class="button-28" onclick=>Cancel</button>
             </div>
+            
+        </div>
+            
+
+            
         </div>
             
 
@@ -124,10 +131,10 @@
 
 
 
-            <button id="voice" >Voice</button>
-            <button id="uservidero">Video</button>
-            <button id="rank">questions</button>
-            <button id="collected_questions" onclick=change_collected_question_visibility()>Collected questions</button>
+            <button id="voice" class="button-19">Voice</button>
+            <button id="uservidero" class="button-19">Video</button>
+            <button id="rank" class="button-19">questions</button>
+            <button id="collected_questions" class="button-19" onclick=change_collected_question_visibility()>Collected questions</button>
 
         <!-- 引入jquery.js -->
         <script
@@ -152,14 +159,21 @@
             {
                 document.getElementById("highlighted_questions").style.visibility="hidden";
                 document.getElementById("example_question").style.background="#72D6A0";
+                document.getElementById("example_rate1").style.visibility="hidden";
+                
+                // TBD  in case
+                localStorage.setItem("answer","yes"); // if not working, change the key or clear
+                localStorage.clear();
             }
             
             // Monitor highlight from students change
             window.addEventListener("storage",function(e){
-                var test =localStorage.getItem("question");
-                if (test != null){
+                var question =localStorage.getItem("question");
+                if (question != null){
+
                     document.getElementById("highlighted_questions").style.visibility = "visible";
                     document.getElementById("example_rate1").innerHTML = "+5";
+
                 }
 
             });
@@ -219,6 +233,10 @@
                 worksheetName = 'sheet',
                 workName = "Question collections.xls";
             
+            // Cancel remaining question board
+            document.getElementById('cancel').onclick = function() {
+                document.getElementById("question_collections").style.visibility = "hidden";
+            };
 
             // Export remaining questions
             document.getElementById('export').onclick = function() {
@@ -272,8 +290,8 @@
         </script>
         </div>
         <div id="input">
-            <input type="text" style="width:300px;height:16px;padding:0px;float:left;text-indent:5px;" id="talkwords">
-            <input type="button" value="send" style="float:left;margin-left:10px;" id="talksub">    
+            <input type="text" class="input_bf" id="talkwords" />
+            <input type="button" class="button-19" value="send" id="talksub">    
         </div>
 
         <div id="background" class="back">

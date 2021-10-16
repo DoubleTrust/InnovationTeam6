@@ -1,11 +1,11 @@
-/*#video {*/
-/*    position: fixed;*/
-/*    width: 70%;*/
-/*    height: 95%;*/
-/*    top: 0%;*/
-/*    left: 0%;*/
-/*    background-color: grey;*/
-/*}*/
+#video {
+    position: fixed;
+    width: 70%;
+    height: 95%;
+    top: 0%;
+    left: 0%;
+    background-color: Gainsboro;
+}
 #lecture{
 	position: absolute;
 	width: 70%;
@@ -45,16 +45,9 @@
     height: 5%;
     top: 95%;
     left: 0%;
-    background-color: orange;
+    background-color: ghostwhite;
 }
-#input {
-    position: absolute;
-    width: 30%;
-    height: 5%;
-    top: 95%;
-    left: 70%;
-    background-color: palegreen;
-}
+
 #open_btn {
 	background: #009900;
 }
@@ -181,6 +174,175 @@ h3 {
     left: 0%;
     background-color: paleturquoise;
 }
+
+#input {
+    position: absolute;
+    width: 30%;
+    height: 5%;
+    top: 95%;
+    left: 70%;
+}
+
+.input_bf {
+	border: Silver 1px solid;
+	border-radius:10px;
+	padding: 9px 0px;
+	padding-left:10px;
+	padding-right:10px;
+	width: 80%;
+	margin-right:3%;
+}
+
+.input_bf:focus {
+	border-style:solid;
+    border-color: #03a9f4;
+	box-shadow: 0 0 4px #03a9f4;
+	outline:none;
+}
+
+/* CSS */
+
+/* CSS */
+.button-19 {
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 8px 12px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:main,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+
+/* CSS */
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 10px;
+  min-width: 0;
+  outline: none;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 10ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+ 
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+ 
+.pure-table td,.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+ 
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+ 
+.pure-table td {
+    background-color: transparent;
+}
+ 
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+ 
+.pure-table-bordered tbody>tr:last-child>td {
+    border-bottom-width: 0;
+}
+
 
 
 
