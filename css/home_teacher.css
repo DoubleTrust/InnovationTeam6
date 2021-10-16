@@ -1,32 +1,34 @@
-#role {
-    position: absolute;
-    width: 30%;
-    height: 10%;
-    top: 0%;
-    left: 30%;
-    background-color: orangered;
+#teacherpart {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image:url("../img/hero-bg.jpg") ;
+    background-size: 100% 100%;
 }
 #student {
     position: absolute;
-    width: 40%;
-    height: 20%;
-    top: 10%;
+    width: 10%;
+    height: 10%;
+    top: 50%;
     left: 30%;
-    background-color: paleturquoise;
 }
-#postq {
+#out {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: 50%;
+    left: 50%;
+}
+
+#avator{
+    position: absolute;
+    top: 0%;
+    left: 40%;
+}
+#welcome{
     position: absolute;
     width: 40%;
     height: 20%;
     top: 30%;
-    left: 30%;
-    background-color: orange;
-}
-#out {
-    position: absolute;
-    width: 40%;
-    height: 20%;
-    top: 50%;
-    left: 30%;
-    background-color: orange;
+    left: 25%;
 }

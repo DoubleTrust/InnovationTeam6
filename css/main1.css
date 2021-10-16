@@ -1,10 +1,10 @@
 #video {
-    position: absolute;
+    position: fixed;
     width: 70%;
     height: 95%;
     top: 0%;
     left: 0%;
-    background-color: orangered;
+    background-color: grey;
 }
 #chat {
     position: absolute;
@@ -12,7 +12,7 @@
     height: 5%;
     top: 0%;
     left: 70%;
-    background-color: paleturquoise;
+    background-color: darkblue;
 }
 #div1 {
     position: absolute;
