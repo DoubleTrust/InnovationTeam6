@@ -16,16 +16,17 @@
 
     </style>
     <body>
-        <div id="video1">
+        <div id="video">
 <!--            <p style="text-align:center">Video</p>-->
-            <video id="video" src="video/test1.mp4" type="video/mp4" autoplay="autoplay" controls="controls" loop="-1" ></video>
+<!--            <video id="video" src="video/test1.mp4" type="video/mp4" autoplay="autoplay" controls="controls" loop="-1" ></video>-->
+            <img id="lecture" src="img/lecture.png" >
         </div>
 
         <div id="chat" style="font-size: 0"><!--取出两个button之间的间隙-->
-                <button style="outline:none;border-radius:5px;border: none;width: 50%;height: 100%" onclick="showDiv();">
-                    Particiption</button>
-                <button style="outline:none;border-radius:5px;border: none;width: 50%;height: 100%" onclick="showDiv();">
+                <button id="parti" style="outline:none;border-radius:5px;border: 1px;width: 50%;height: 100%" onclick="showDiv();">
                     Chat</button>
+                <button id="chatbtn" style="outline:none;border-radius:5px;border: 1px;width: 50%;height: 100%" onclick="showDiv();">
+                    Particiption</button>
 
         </div>
         <div id="div1" class="col-md-7 agileits_mail_grid_left" style="display: block;border-radius:10px">
@@ -46,9 +47,9 @@
         </div>                
         
 
-        <div id="div2" class="col-md-7 agileits_mail_grid_left" style="display: none;border-radius:10px">
+        <div id="div2" class="agileits_mail_grid_left" style="display: none;border-radius:10px">
 
-                    <table class="table" style="background-color: #ffffff">
+                    <table class="table" >
                         <tbody>
 
                         <dl>
@@ -60,29 +61,29 @@
                             <hr/>
                             <dt>
                                 <div id="user1">
-                                    <img src="img/l1.png" style="width:5%;height:5%;vertical-align: middle" >
-                                    <h3>Tome</h3>
+                                    <img src="img/l1.png" alt=" " style="width:5%;height:5%;vertical-align: middle" >
+                                    <span style="color: black">Tome</span>
                                 </div>
                             </dt>
                             <hr/>
                             <dt>
                                 <div id="user2">
-                                    <img src="img/l3.png" style="width:5%;height:5%;vertical-align: middle" >
-                                    <h3>Jim</h3>
+                                    <img src="img/l3.png" alt=" " style="width:5%;height:5%;vertical-align: middle" >
+                                    <span style="color: black">Jim</span>
                                 </div>
                             </dt>
                             <hr/>
                             <dt>
                                 <div id="user3">
-                                    <img src="img/l5.png" style="width:5%;height:5%;vertical-align: middle" >
-                                    <h3>Perre</h3>
+                                    <img src="img/l5.png" alt=" " style="width:5%;height:5%;vertical-align: middle" >
+                                    <span style="color: black">Joe</span>
                                 </div>
                             </dt>
                             <hr/>
                             <dt>
                                 <div id="user4">
-                                    <img src="img/l7.png" style="width:5%;height:5%;vertical-align: middle" >
-                                    <h3>Ham</h3>
+                                    <img src="img/l7.png" alt=" " style="width:5%;height:5%;vertical-align: middle" >
+                                    <span style="color: black">Ham</span>
                                 </div>
                             </dt>
                             <hr/>
@@ -236,6 +237,8 @@
         function showDiv() {
             var div1=document.getElementById("div1");
             var div2=document.getElementById("div2");
+            var btn1=document.getElementById("parti");
+            var btn2=document.getElementById("chatbtn");
 
             if (div1.style.display==='block')
                 div1.style.display='none';
@@ -243,6 +246,13 @@
             if (div2.style.display==='block')
                 div2.style.display='none';
             else div2.style.display='block';
+
+            if (div1.style.display==='block')
+                btn1.disabled = true;
+            else btn1.disabled = false;
+            if (div2.style.display==='block')
+                btn2.disabled = true;
+            else btn2.disabled = false;
         }
         function openwin() {
             window.open ("rankpage.html", "height=100, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
