@@ -21,3 +21,10 @@
     left: 50%;
     /*background-color: orange;*/
 }
+#character{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    top: 40%;
+    left: 40%;
+}
