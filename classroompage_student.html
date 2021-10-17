@@ -69,7 +69,7 @@
                             <hr/>
                             <dt>
                                 <div id="user2">
-                                    <img src="img/l7.png" alt=" " style="width:5%;height:5%;vertical-align: middle" >
+                                    <img id="changerank" src="img/white.png" alt=" " style="width:5%;height:5%;vertical-align: middle" >
                                     <span style="color: black">Alan(You)</span>
                                 </div>
                             </dt>
@@ -315,6 +315,7 @@
         var multiSize = $("[name='multi']").length;
         var div = document.getElementById('multiquestion');
         var value = document.getElementById('changecredits');
+        var changerank = document.getElementById('changerank');
         //答案数组
         var answerArr = new Array(singleSize+multiSize);
         //单选答案
@@ -341,6 +342,7 @@
         //发送答案到服务器
         value.innerText = parseInt(value.innerText) + 1
         div.style.display = "none";
+        changerank.src = 'img/l7.png';
     }
     </script>
 
