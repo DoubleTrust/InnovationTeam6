@@ -10,9 +10,6 @@
         <script src="js/dialog.js"></script>
 
     </head>
-    <style>
-
-    </style>
     <body>
         <div id="video" >
            <p style="text-align:center">Video</p>
@@ -51,13 +48,9 @@
             </div>
             
         </div>
-            
-
-            
         </div>
-            
 
-        <div id="chat" style="font-size: 0"><!--取出两个button之间的间隙-->
+        <div id="chat" style="font-size: 0">
                 <button id="parti" style="outline:none;border-radius:5px;border: none;width: 50%;height: 100%" onclick="showDiv();">
                     Chat</button>
                 <button id="chatbtn" style="outline:none;border-radius:5px;border: none;width: 50%;height: 100%" onclick="showDiv();">
@@ -142,144 +135,17 @@
 
         <div id="tools">
 
+        <button id="voice" class="button-19">Voice</button>
+        <button id="uservidero" class="button-19">Video</button>
+        <button id="rank" class="button-19">questions</button>
+        <button id="collected_questions" class="button-19" onclick=change_collected_question_visibility()>Collected questions</button>
 
-
-            <button id="voice" class="button-19">Voice</button>
-            <button id="uservidero" class="button-19">Video</button>
-            <button id="rank" class="button-19">questions</button>
-            <button id="collected_questions" class="button-19" onclick=change_collected_question_visibility()>Collected questions</button>
-
-        <!-- 引入jquery.js -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-
-
-        <script>
-            function change_collected_question_visibility()
-            {
-                document.getElementById("question_collections").style.visibility="visible";
-            }
-            function changeVisibility_with_export() // for highlighted students
-            {
-                document.getElementById("highlighted_questions").style.visibility="hidden";
-
-                // Add to question list
-                question_str = '<tr><td>chenjunyu19</td><td>'+ document.getElementById("example_question").innerHTML + '</td><td>5</td></tr>'
-                var question_list = document.getElementById("question_list");
-                question_list.innerHTML = question_list.innerHTML + question_str;
-            }
-            function changeVisibility_with_question()
-            {
-                document.getElementById("highlighted_questions").style.visibility="hidden";
-                document.getElementById("example_question").style.background="#72D6A0";
-                document.getElementById("example_rate1").style.visibility="hidden";
-                
-                // TBD  in case
-                localStorage.setItem("answer","yes"); // if not working, change the key or clear
-                localStorage.clear();
-            }
-            
-            // Monitor highlight from students change
-            window.addEventListener("storage",function(e){
-                var question =localStorage.getItem("question");
-                if (question != null){
-
-                    document.getElementById("highlighted_questions").style.visibility = "visible";
-                    document.getElementById("example_rate1").innerHTML = "+5";
-
-                }
-
-            });
-
-            // Monitor chatbox change
-            window.addEventListener("storage",function(e){
-                // save to local storage
-                var value = localStorage.getItem("Alan"); // if not working, change the key or clear
-                
-                if (value != null){
-                    str = '<div class="cleft cmsg"><span class="name">' + 'Alan' + '</span><span class="content">'+ value + '</span><span id="example_rate" class="content">+1</span></div>'
-                    var Words = document.getElementById("words");
-                    Words.innerHTML = Words.innerHTML + str;
-                    
-                    if (value.indexOf("?") != -1){
-                        // Add to question list
-                        question_str = '<tr><td>Alan</td><td>'+ value + '</td><td>1</td></tr>'
-                        var question_list = document.getElementById("question_list");
-                        question_list.innerHTML = question_list.innerHTML + question_str;
-                    }
-                } 
-
-                var p3 = localStorage.getItem("p3"); // if not working, change the key or clear
-                if (p3 != null){
-                    document.getElementById("example_rate2").innerHTML = p3;
-                } 
-
-                localStorage.clear();
-            });
-                            
-
-            // Chat-box code (input)
-            window.onload = function(){
-                var Words = document.getElementById("words");
-                var Who = "You (Green) ";
-                var TalkWords = document.getElementById("talkwords");
-                var TalkSub = document.getElementById("talksub");
-                
-                
-                TalkSub.onclick = function(){
-                    //定义空字符串
-                    var str = "";
-                    if(TalkWords.value == ""){
-                         // 消息为空时弹窗
-                        alert("消息不能为空");
-                        return;
-                    }
-                    str = '<div class="cleft cmsg"><span class="name">' + Who + '</span><span class="content">'+ TalkWords.value + '</span><span id="example_rate" class="content">+1</span></div>'
-
-                    Words.innerHTML = Words.innerHTML + str;
-                    document.getElementById("talkwords").value="";
-
-                }
-            }
-            
-            var id = "collected",
-                worksheetName = 'sheet',
-                workName = "Question collections.xls";
-            
-            // Cancel remaining question board
-            document.getElementById('cancel').onclick = function() {
-                document.getElementById("question_collections").style.visibility = "hidden";
-            };
-
-            // Export remaining questions
-            document.getElementById('export').onclick = function() {
-                var download = tableToExcel();
-                download(id, worksheetName, workName);
-                document.getElementById("question_collections").style.visibility = "hidden";
-            };
-
-            // Export main function
-            var tableToExcel = (function() {
-                var uri = 'data:application/vnd.ms-excel;base64,',
-                    template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
-                    base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) },
-                    format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) };
-                return function(table, name, filename) {
-                    if (!table.nodeType) table = document.getElementById(table);
-                    console.log(table.innerHTML)
-                    var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }//此时的innerHTML数据可以自己自定义 比如json转化 只要值要数据符合即可
-        
-                    document.getElementById("dlink").href = uri + base64(format(template, ctx));
-                    document.getElementById("dlink").download = filename;
-                    document.getElementById("dlink").click();
-                }
-
-            });
-
-
-
-        </script>
+        <!-- import jquery.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+        <script src="js/highlight_teacher.js"></script>
+        <script src="js/chatbox_teacher.js"></script>
         <script src="js/popup_teacher.js"></script>
+        <script src="js/question_download.js"></script>
         </div>
 
         <div id="input">
@@ -294,7 +160,6 @@
                         <h2>Post questions list</h2>
                     </div>
                     <div id="poptitile">
-<!--                        <h3>弹窗标题</h3>-->
                         <table width="100%" border="1" >
                               <thead>
                                   <tr>

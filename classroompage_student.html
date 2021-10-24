@@ -23,7 +23,7 @@
 <!--            <img id="lecture" src="img/lecture.png" >-->
         </div>
 
-        <div id="chat" style="font-size: 0"><!--取出两个button之间的间隙-->
+        <div id="chat" style="font-size: 0">
                 <button id="parti" style="outline:none;border-radius:5px;border: 1px;width: 50%;height: 100%" onclick="showDiv();">
                     Chat</button>
                 <button id="chatbtn" style="outline:none;border-radius:5px;border: 1px;width: 50%;height: 100%" onclick="showDiv();">
@@ -129,7 +129,6 @@
                         <h2>Ranking list</h2>
                     </div>
                     <div id="poptitile">
-<!--                        <h3>弹窗标题</h3>-->
                         <table width="100%" border="1" >
                               <thead>
                                   <tr>
@@ -190,8 +189,6 @@
                 </div>
             </div>
 
-
-
         <div id="multiquestion" class="back">
             <div id="poptopq" class="content">
                     <div id="closqe">
@@ -227,75 +224,8 @@
     <script src="js/tc.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-    <script>
-        // Plus one code    
-        document.getElementById('example_rate1').addEventListener('click', highlight, false);
-        function highlight() {
-            document.getElementById("example_rate1").innerHTML = "+5";
-            localStorage.setItem("question","What does the VPC mean?"); // if not working, change the key or clear
-            localStorage.clear();
-        };
-
-        /*$("#example_rate1").click(function(){
-            alert(1);
-            document.getElementById("example_rate1").innerHTML = "+5";
-            localStorage.setItem("question","What does the VPC mean?"); // if not working, change the key or clear
-            localStorage.clear();
-            
-        });*/
-
-        $("#example_rate2").click(function(){
-            document.getElementById("example_rate2").innerHTML = "+3";
-            localStorage.setItem("p3","+3"); // if not working, change the key or clear
-            localStorage.clear();
-        });
-
-        // Monitor whether teacher answered highlighted questions
-        window.addEventListener("storage",function(e){
-            var answer =localStorage.getItem("answer");
-            if (answer != null){
-
-                document.getElementById("example_question").style.background="#72D6A0";
-                document.getElementById("example_rate1").style.visibility="hidden";
-            }
-
-        });
-
-
-        function openwin() {
-            window.open ("rankpage.html", "height=100, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
-        }
-        
-        // Chat-box code
-    </script>
+    <script src="js/question_rating.js"></script>
     <script src="js/popup_student.js"></script>
-    <script>
-        function pass_info(){
-            //定义空字符串
-            var Words = document.getElementById("words");
-            var Who = "You (Alan) ";
-            var TalkWords = document.getElementById("talkwords");
-            var TalkSub = document.getElementById("talksub");
-
-            var str = "";
-            if(TalkWords.value == ""){
-                    // 消息为空时弹窗
-                alert("消息不能为空");
-                return;
-            }
-            str = '<div class="cleft cmsg"><span class="name">' + Who + '</span><span class="content">'
-                 + TalkWords.value + '</span><span class="content">+1</span></div>'
-            
-            Words.innerHTML = Words.innerHTML + str;
-
-            // save to local storage
-            localStorage.setItem("Alan",TalkWords.value); // if not working, change the key or clear
-            localStorage.clear();
-            document.getElementById("talkwords").value="";
-        }
-        
-    </script>
-
     <script src="js/checkquestions.js"></script>
 
 </html>
