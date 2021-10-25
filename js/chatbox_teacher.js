@@ -28,7 +28,6 @@ window.onload = function(){
 window.addEventListener("storage",function(e){
     // save to local storage
     var value = localStorage.getItem("Alan"); // if not working, change the key or clear
-    
     if (value != null){
         str = '<div class="cleft cmsg"><span class="name">' + 'Alan' + '</span><span class="content">'+ value + '</span><span id="example_rate" class="content">+1</span></div>'
         var Words = document.getElementById("words");

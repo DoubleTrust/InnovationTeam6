@@ -4,13 +4,13 @@ document.getElementById('example_rate1').addEventListener('click', highlight, fa
 function highlight() {
     document.getElementById("example_rate1").innerHTML = "+5";
     localStorage.setItem("question","What does the VPC mean?"); // if not working, change the key or clear
-    localStorage.clear();
+    //localStorage.clear();
 };
 
 $("#example_rate2").click(function(){
     document.getElementById("example_rate2").innerHTML = "+3";
     localStorage.setItem("p3","+3"); // if not working, change the key or clear
-    localStorage.clear();
+    //localStorage.clear();
 });
 
 // Pass information to teacher side and construct chatbox
@@ -32,7 +32,7 @@ function pass_info(){
 
     // save to local storage
     localStorage.setItem("Alan",TalkWords.value); // if not working, change the key or clear
-    localStorage.clear();
+    //localStorage.clear();
     document.getElementById("talkwords").value="";
 }
 
