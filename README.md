@@ -51,10 +51,15 @@ You should be able to see two pages in diffrernt tabs now. One is called "**page
   <img src="img/show_rank.png" alt="collect" style="zoom:70%;" />
 
   <img src="img/answer_question.png" alt="collect" style="zoom:70%;" />
+
+  <img src="img/medal.png" alt="collect" style="zoom:70%;" />
+
+  There is a medal in front of student's name. When student's rank is top 3 in the class, they will receive the medal in next class.
   
 - [Teacher] Teacher clicks "Question" button to post latest questions to students.
 
   <img src="img/post_question.png" alt="collect" style="zoom:70%;" />
+
 
 
 
@@ -63,4 +68,4 @@ You should be able to see two pages in diffrernt tabs now. One is called "**page
 - [Stundet/Teacher] They can click "Particiption" button in chat box, where displays the answered questions percentage of current teacher. 
 
 
-  <img src="img/percentage.png.png" alt="collect" style="zoom:70%;" />
+  <img src="img/percentage.png" alt="collect" style="zoom:70%;" />
