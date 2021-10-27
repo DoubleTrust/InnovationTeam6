@@ -40,7 +40,7 @@ You should be able to see two pages in diffrernt tabs now. One is called "**page
 
 - [Teacher] Teacher clicks "Collected Question" button and it will display all recorded questions collected from the chatbox. You can click the "Download" button and theses questions will be exported to your local device as an excel file. You can open it to check the content.
 
-  <img src="/Users/sebastianyan/Desktop/Unimelb/2021/S2/Technology Innovation Project /Prototype/InnovationTeam6/img/collect.png" alt="collect" style="zoom:70%;" />
+  <img src="img/collect.png" alt="collect" style="zoom:70%;" />
 
 
 
