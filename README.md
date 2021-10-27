@@ -46,6 +46,21 @@ You should be able to see two pages in diffrernt tabs now. One is called "**page
 
 ### Credit function
 
+- [Stundet] Student clicks the "Answer Question" button. You can answer current questions from teachers,and you also can click the "Rank" button to check current credits.
+
+  <img src="img/show_rank.png" alt="collect" style="zoom:70%;" />
+
+  <img src="img/answer_question.png" alt="collect" style="zoom:70%;" />
+  
+- [Teacher] Teacher clicks "Question" button to post latest questions to students.
+
+  <img src="img/post_question.png" alt="collect" style="zoom:70%;" />
+
 
 
 ### Publish percentage information
+
+- [Stundet/Teacher] They can click "Particiption" button in chat box, where displays the answered questions percentage of current teacher. 
+
+
+  <img src="img/percentage.png.png" alt="collect" style="zoom:70%;" />
